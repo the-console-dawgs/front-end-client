@@ -1,8 +1,5 @@
 'use strict'
 
-// Library api endpoint
-// https://wdi-library.herokuapp.com/
-
 let apiUrl
 const apiUrls = {
   production: '<replace-with-heroku-url>',

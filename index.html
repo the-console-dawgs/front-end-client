@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Survey Says!</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,7 +12,124 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
-      <h2>create user</h2>
+      <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand brand-custom" href="#">SURVEY SAYS!</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <button id="change-password" type="button" class="btn btn-info btn-style" data-toggle="modal" data-target="#changePasswordModal"><span class="glyphicon glyphicon-lock"></span> Change Password</button>
+              <button id="sign-out" type="button" class="btn btn-secondary btn-style" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-log-out"></span> Sign Out</button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!--Register/Log In Form-->
+      <div id="auth-forms" class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+    				<div class="panel panel-login">
+    					<div class="panel-heading">
+    						<div class="row">
+    							<div class="col-xs-6">
+    								<a href="#" class="active" id="register-form-link"><span class="glyphicon glyphicon-plus"></span> Register</a>
+    							</div>
+    							<div class="col-xs-6">
+    								<a href="#" id="login-form-link"><span class="glyphicon glyphicon-user"></span> Log In</a>
+    							</div>
+    						</div>
+    						<hr>
+    					</div>
+    					<div class="panel-body">
+    						<div class="row">
+    							<div class="col-lg-12">
+    								<form id="register-form" style="display: block;">
+                      <div id="register-error" class="alert alert-danger">
+                        <strong>Unable to register!</strong> Please try again!
+                      </div>
+    									<div class="form-group">
+    										<input type="email" name="credentials[email]" tabindex="1" class="form-control" placeholder="Email Address" required>
+    									</div>
+    									<div class="form-group">
+    										<input type="password" name="credentials[password]" tabindex="2" class="form-control" placeholder="Password" required>
+    									</div>
+    									<div class="form-group">
+    										<input type="password" name="credentials[password_confirmation]" tabindex="2" class="form-control" placeholder="Confirm Password" required>
+    									</div>
+    									<div class="form-group">
+    										<div class="row">
+    											<div class="col-sm-6 col-sm-offset-3">
+    												<input type="submit" name="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+    											</div>
+    										</div>
+    									</div>
+    								</form>
+                    <form id="login-form" style="display: none;">
+                      <div id="register-success"></div>
+                      <div id="login-error" class="alert alert-danger">
+                        <strong>Unable to log in!</strong> Please try again!
+                      </div>
+                      <div class="form-group">
+    										<input type="email" name="credentials[email]" id="email" tabindex="1" class="form-control" placeholder="Email Address" required>
+    									</div>
+                      <div class="form-group">
+                        <input type="password" name="credentials[password]" tabindex="2" class="form-control" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+      </div>
+
+      <!-- Change Password Modal -->
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h2 class="modal-title-custom" id="exampleModalLabel">Change Password</h2>
+            </div>
+            <div class="modal-body">
+              <form id="change-password-form">
+                <div class="form-group">
+                  <div id="change-pw-error" class="alert alert-danger">
+                    <strong>Change password failed!</strong> Please try again!
+                  </div>
+                  <label for="exampleInputEmail1">Old Password</label>
+                  <input name="passwords[old]" type="password" class="form-control" aria-describedby="emailHelp" placeholder="Old Password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">New Password</label>
+                  <input name="passwords[new]" type="password" class="form-control" placeholder="New Password">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </body>
 </html>

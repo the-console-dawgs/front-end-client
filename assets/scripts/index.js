@@ -21,4 +21,24 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#login-form-link').on('click', authEvents.onLogInFormLink)
   $('#register-form-link').on('click', authEvents.onRegisterFormLink)
+
+  $('#auth-forms').hide()
+
+  // dashboard click handlers
+  $('.create').on('click', function () {
+    window.location = '#'
+  })
+  $('.your-surveys').on('click', function () {
+    window.location = '#'
+  })
+  $('.all-surveys').on('click', function () {
+    window.location = '#'
+  })
+  $('.create').hover(
+    function () {
+      $(this).css({'background-color': 'red'})
+    },
+    function () {
+      $(this).css({'background-color': 'blue'})
+    })
 })

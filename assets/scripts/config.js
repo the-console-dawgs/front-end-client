@@ -5,7 +5,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: 'https://guarded-springs-12986.herokuapp.com/',
   development: 'http://localhost:4741'
 }
 

@@ -140,3 +140,69 @@ body {
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+// TESTING
+.dashboard-header {
+  height: 250px;
+  padding-top: 50px;
+
+  h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 40px;
+  }
+
+  h2 {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 30px;
+  }
+}
+
+.dashboard {
+  background-color: white;
+  height: 400px;
+
+  h4 {
+  font-size: 25px;
+  font-weight: bold;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.create {
+  height: 200px;
+  background-color: blue;
+  padding-top: 35px;
+  cursor: pointer;
+}
+
+.your-surveys {
+  height: 200px;
+  background-color: red;
+  padding-top: 35px;
+  cursor: pointer;
+}
+
+.all-surveys {
+  height: 200px;
+  background-color: yellow;
+  padding-top: 35px;
+  cursor: pointer;
+}
+
+.logo-small {
+  color: #f4511e;
+  font-size: 50px;
+}
+
+.logo {
+  color: #f4511e;
+  font-size: 200px;
+}

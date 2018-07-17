@@ -1,2 +1,142 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300');
+@import url('https://fonts.googleapis.com/css?family=Teko:700');
+
+body {
+  background-attachment: fixed;
+  background-image: url('https://i.imgur.com/sc99Bbn.jpg');
+  background-size: cover;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 75px;
+}
+
+.btn-style {
+  margin: 10px;
+}
+
+.brand-custom {
+  color: #fff;
+  font-family: 'Teko', sans-serif;
+}
+
+.round-display {
+  text-align: center;
+  // padding-bottom: 15px;
+}
+
+#register-success {
+  color: #1CB94E;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 22px;
+  text-align: center;
+}
+
+#success-message {
+  color: #1CB94E;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 30px;
+  text-align: center;
+}
+
+.panel-login {
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+
+.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align: center;
+}
+
+.panel-heading a {
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 18px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+
+.panel-heading a.active {
+	color: #029f5b;
+	font-size: 22px;
+}
+
+.panel-heading hr {
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+
+.btn-login,
+.btn-get-round {
+	background-color: #59B2E0;
+	outline: none;
+	color: #fff;
+	font-size: 16px;
+	height: auto;
+	font-weight: bold;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #59B2E6;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+
+.btn-register,
+.btn-add-round {
+	background-color: #1CB94E;
+	outline: none;
+	color: #fff;
+	font-size: 16px;
+	height: auto;
+	font-weight: bold;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
+}
+
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}

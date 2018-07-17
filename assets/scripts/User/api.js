@@ -1,5 +1,5 @@
-const store = require('../scripts/store')
-const config = require('../scripts/config')
+const store = require('../store')
+const config = require('../config')
 
 const register = function (data) {
   return $.ajax({
@@ -37,4 +37,11 @@ const signOut = function (data) {
       Authorization: 'Token token=' + store.user.token
     }
   })
+}
+
+module.exports = {
+  register,
+  logIn,
+  changePassword,
+  signOut
 }

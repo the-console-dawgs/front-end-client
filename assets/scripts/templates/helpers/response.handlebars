@@ -1,0 +1,12 @@
+{{#each responses as |response|}}
+<div>Total responses: {{responses.length}}</div>
+<br>
+    <div class="listed-response" data-id="{{response._id}}">
+
+      <div class="row">
+        <div>{{response.response}}</div>
+      </div>
+
+    </div>
+
+{{/each}}

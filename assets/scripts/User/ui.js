@@ -26,7 +26,8 @@ const logInSuccess = function (logInResponse) {
   $('#change-password').delay(200).fadeIn(100)
   $('#sign-out').delay(200).fadeIn(100)
   $('#login-form')[0].reset()
-  $('#auth-forms').hide()
+  $('#auth-forms').delay(100).fadeOut(100)
+  $('#dashboard').delay(200).fadeIn(100)
   $('#successModal').modal('show')
   $('#success-message').html('Successfully logged in as ' + store.user.email)
 }

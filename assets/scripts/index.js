@@ -36,9 +36,23 @@ $(() => {
   })
   $('.create').hover(
     function () {
-      $(this).css({'background-color': 'red'})
+      $(this).css({'background-color': 'rgba(133, 227, 253, 1)'})
     },
     function () {
-      $(this).css({'background-color': 'blue'})
+      $(this).css({'background-color': 'rgba(133, 227, 253, .6)'})
+    })
+  $('.your-surveys').hover(
+    function () {
+      $(this).css({'background-color': 'rgba(82, 215, 253, 1)'})
+    },
+    function () {
+      $(this).css({'background-color': 'rgba(82, 215, 253, .6)'})
+    })
+  $('.all-surveys').hover(
+    function () {
+      $(this).css({'background-color': 'rgba(3, 199, 255, 1)'})
+    },
+    function () {
+      $(this).css({'background-color': 'rgba(3, 199, 255, .6)'})
     })
 })

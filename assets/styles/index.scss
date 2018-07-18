@@ -1,14 +1,14 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
 @import url('https://fonts.googleapis.com/css?family=Teko:700');
 
 body {
   background-attachment: fixed;
-  background-image: url('https://i.imgur.com/sc99Bbn.jpg');
+  background-image: url('https://i.imgur.com/un5Iz3o.jpg');
   background-size: cover;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Dosis', sans-serif;
   padding-top: 75px;
 }
 
@@ -144,30 +144,32 @@ body {
 // TESTING
 .dashboard-header {
   height: 250px;
-  padding-top: 50px;
+  margin: 65px 20px 0px;
 
   h1 {
     color: white;
-    font-size: 50px;
+    font-size: 45px;
     font-weight: bold;
     line-height: 40px;
+    text-shadow: 2px 2px 4px #000;
   }
 
   h2 {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
-    line-height: 30px;
+    line-height: 35px;
+    text-shadow: 2px 2px 4px #000;
   }
 }
 
 .dashboard {
   background-color: white;
-  height: 400px;
+  height: auto;
 
   h4 {
-  font-size: 25px;
-  font-weight: bold;
+    font-size: 25px;
+    font-weight: bold;
   }
 
   p {
@@ -177,32 +179,25 @@ body {
 }
 
 .create {
-  height: 200px;
-  background-color: blue;
-  padding-top: 35px;
+  height: 250px;
+  background-color: rgba(133, 227, 253, .6);
+  // background-color: #84e4ff;
+  padding-top: 75px;
   cursor: pointer;
 }
 
 .your-surveys {
-  height: 200px;
-  background-color: red;
-  padding-top: 35px;
+  height: 250px;
+  background-color: rgba(82, 215, 253, .6);
+  // background-color: #52d7fd;
+  padding-top: 75px;
   cursor: pointer;
 }
 
 .all-surveys {
-  height: 200px;
-  background-color: yellow;
-  padding-top: 35px;
+  height: 250px;
+  background-color: rgba(3, 199, 255, .6);
+  // background-color: #03c7ff;
+  padding-top: 75px;
   cursor: pointer;
-}
-
-.logo-small {
-  color: #f4511e;
-  font-size: 50px;
-}
-
-.logo {
-  color: #f4511e;
-  font-size: 200px;
 }

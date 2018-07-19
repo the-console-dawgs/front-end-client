@@ -1,16 +1,16 @@
 
-const showAllResponses = require('../templates/responses.handlebars')
+const showAllResponses = require('../templates/helpers/responses.handlebars')
 const store = require('../store.js')
 
 // need to figure out where to display all the UI messages
 const createResponseSuccess = function (data) {
-  $('.response-message').text('Thank You. Response has been submitted.')
+  $('.user-message').text('Thank You. Response has been submitted.')
   // $('.respond').hide()
   // $('#message').empty()
 }
 
 const createResponseFailure = function (data) {
-  $('.response-message').text(' Sorry, please try again !')
+  $('.user-message').text(' Sorry, please try again !')
 }
 
 const getResponsesSuccess = function (data) {
@@ -18,7 +18,8 @@ const getResponsesSuccess = function (data) {
   const showResponsesHtml = showAllResponses({
     respones: data.responses
   })
-  $('#show-responses').html(showResponsesHtml)
+  $('.user-message').html('Your responses are below !')
+  $('.show-content').html(showResponsesHtml)
 }
 module.exports = {
   createResponseFailure,

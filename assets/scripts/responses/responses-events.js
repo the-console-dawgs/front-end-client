@@ -21,8 +21,8 @@ const onGetResponses = function (event) {
 }
 // need to edit the location for displaying all these through handlebars
 const addHandlers = () => {
-  $('#get-all-recipes').on('submit', onGetResponses)
-  $('#list-of-recipes').on('submit', '.delete-recipe', onCreateResponse)
+  $('#show-content').on('submit', onGetResponses)
+  // $('#list-of-recipes').on('submit', '.delete-recipe', onCreateResponse)
 }
 
 module.exports = {

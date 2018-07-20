@@ -33,7 +33,8 @@ $(() => {
   // dashboard click handlers
   $('.create').on('click', surveyEvents.onCreateSurveyTab)
   $('.your-surveys').on('click', surveyEvents.onYourSurveysTab)
-  $('.all-surveys').on('click', surveyEvents.onAllSurveysTab)
+  $('.all-surveys').on('click', surveyEvents.onGetSurveys)
+  $('#view-all-surveys-btn').on('click', surveyEvents.onGetSurveys)
 
   // dashboard hover effect
   $('.create').hover(

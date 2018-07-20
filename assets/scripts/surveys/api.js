@@ -17,7 +17,7 @@ const createSurvey = function (data) {
 const getSurveys = function () {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + 'surveys',
+    url: config.apiUrl + '/surveys',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -27,7 +27,7 @@ const getSurveys = function () {
 const removeSurvey = (surveyId) => {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + 'surveys/' + surveyId,
+    url: config.apiUrl + '/surveys/' + surveyId,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -37,7 +37,7 @@ const removeSurvey = (surveyId) => {
 const updateSurvey = (data, surveyId) => {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + 'surveys/' + surveyId,
+    url: config.apiUrl + '/surveys' + surveyId,
     data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token

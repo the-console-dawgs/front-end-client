@@ -1,5 +1,26 @@
+{{#each surveys as |survey|}}
 
-  {{#each surveys as |survey|}}
+<div id="view-all-surveys-handlebars" class="card" data-id="{{survey.id}}">
+  <div class="card-body col-sm-2 col-med-2" style="background-color: white; width: 31.5%; min-height: 300px; margin: 10px; padding-top: 20px;">
+    <div class="show-options col-xs-12 response-message">
+      <h5><b>Survey ID: {{survey._id}}</h5>
+      <h3><b>Question:</b> {{survey.question}}</h3>
+      <form class="survey-response-form" data-id="{{survey._id}}">
+        <fieldset>
+          <!-- <legend> Please respond to the survey</legend> -->
+          <h3><input type="radio" name="response" value="True"><b>&nbsp;True</b></h3>
+          <h3><input type="radio" name="response" value="False"><b>&nbsp;False</b></h3>
+        </fieldset>
+        <button style="margin: 15px 5px;" type="submit" class="btn btn-success submit-response" data-class="submit-response" data-id='{{survey.id}}'>SUBMIT RESPONSE</button>
+        <button style="margin: 15px 5px;" type="submit" class="btn btn-info view-responses" data-class="view-responses" data-id='{{response.id}}'>VIEW ALL RESPONSES</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{/each}}
+
+  <!-- {{#each surveys as |survey|}}
 <div class="card" data-id="{{survey.id}}">
    <div class="card-body col-sm-2 col-med-2">
     <div class="form-group">
@@ -22,4 +43,4 @@
 
 </div>
 </div>
-{{/each}}
+{{/each}} -->

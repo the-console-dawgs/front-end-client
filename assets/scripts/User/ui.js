@@ -23,6 +23,7 @@ const registerError = function (registerError) {
 
 const logInSuccess = function (logInResponse) {
   store.user = logInResponse.user
+  console.log(logInResponse)
   $('#change-password').delay(200).fadeIn(100)
   $('#sign-out').delay(200).fadeIn(100)
   $('#login-form')[0].reset()
@@ -68,6 +69,9 @@ const signOutSuccess = function (signOutResponse) {
   $('#login-error').hide()
   $('#successModal').modal('show')
   $('#success-message').text('You successfully signed out!')
+  $('.show-content').delay(100).fadeOut(100)
+  $('#dash-nav').delay(100).fadeOut(100)
+  $('#logo').delay(200).fadeIn(100)
 }
 
 const signOutError = function (signOutError) {

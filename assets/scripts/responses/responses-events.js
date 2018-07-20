@@ -6,9 +6,14 @@ const ui = require('./responses-ui')
 
 // events for responses. Only doing create and get responses
 const onCreateResponse = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
-  api.createResponse(data)
+  // console.log('this.value is', this.value)
+  const data = getFormFields(this)
+  const surveyId = $(event.target).attr('data-id')
+  // console.log(surveyId)
+  // console.log(value)
+  const value = data.response
+  api.createResponse(value, surveyId)
     .then(ui.createResponseSuccess)
     .catch(ui.createResponseFailure)
 }

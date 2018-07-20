@@ -12,13 +12,21 @@ body {
   padding-top: 75px;
 }
 
+.card {
+  background-color: #fff;
+}
+
 .btn-style {
   margin: 10px;
 }
 
 .show-content {
-  color: #f00;
+  color: #000;
+  text-align: center;
+  margin: auto;
+  // background-color: white;
 }
+
 .brand-custom {
   color: #fff;
   font-family: 'Teko', sans-serif;

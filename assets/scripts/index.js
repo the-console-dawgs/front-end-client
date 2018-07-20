@@ -5,6 +5,7 @@
 
 const authEvents = require('./User/events')
 const surveyEvents = require('./surveys/events')
+const responseEvents = require('./responses/responses-events')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -63,4 +64,8 @@ $(() => {
   $('#create-survey').hide()
   $('#create-survey-error').hide()
   $('#create-survey-form').on('submit', surveyEvents.onCreateSurvey)
+
+  // Create Response
+  $('.survey-response-form').on('submit', responseEvents.onCreateResponse)
+  $('.show-content').on('submit', '.survey-response-form', responseEvents.onCreateResponse)
 })

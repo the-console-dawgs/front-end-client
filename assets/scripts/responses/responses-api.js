@@ -1,14 +1,21 @@
 const store = require('../store')
 const config = require('../config.js')
 
-const createResponse = function (data) {
+const createResponse = function (value, surveyId) {
+  console.log(value, surveyId)
   return $.ajax({
-    url: config.apiOrigin + '/responses/',
+    url: config.apiUrl + '/responses/',
     method: 'POST',
+    data: {
+      'response': {
+        'value': value,
+        'surveyId': surveyId
+      }
+    },
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
+    // data
   })
 }
 

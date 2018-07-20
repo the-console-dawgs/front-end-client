@@ -12,6 +12,7 @@ const onDashNav = function (event) {
   $('#dash-nav').delay(100).fadeOut(100)
   $('#dashboard').delay(200).fadeIn(100)
   $('#logo').delay(200).fadeIn(100)
+  $('.show-content').delay(100).fadeOut(100)
 }
 
 const onCreateSurveyTab = function (event) {

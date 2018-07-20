@@ -7,13 +7,13 @@ const createSurveySuccess = function (createSurveyResponse) {
   $('#create-survey-form')[0].reset()
   $('#create-survey-error').hide()
   $('#successModal').modal('show')
-  $('.user-message').html('You successfully created a survey!')
+  $('#success-message').text('You successfully created a survey!')
 }
 
 const createSurveyError = function (createSurveyError) {
   $('#create-survey-form')[0].reset()
   $('#create-survey-error').delay(100).fadeIn(100)
-  $('.user-message').html('You were not able to create a survey!')
+  // $('.user-message').html('You were not able to create a survey!')
 }
 
 const getSurveysSuccess = function (data) {
@@ -24,12 +24,13 @@ const getSurveysSuccess = function (data) {
   $('#create-survey-form')[0].reset()
   $('#create-survey-error').hide()
   $('#create-survey').delay(100).fadeOut(100)
-  $('.user-message').html('Your surveys are below !')
+  // $('.user-message').html('Your surveys are below !')
+  $('.show-content').delay(100).fadeIn(100)
   $('.show-content').html(showSurveysHtml)
 }
 
 const getSurveysFailure = function (data) {
-  $('.user-message').html('Please try again !')
+  // $('.user-message').html('Please try again !')
 }
 
 const getOneSurveySuccess = function (data) {
@@ -37,12 +38,12 @@ const getOneSurveySuccess = function (data) {
   const showUserSurveysHtml = showUserSurveys({
     // surveys: data.surveys
   })
-  $('.user-message').html('Your surveys(user) are below !')
+  // $('.user-message').html('Your surveys(user) are below !')
   $('.show-content').html(showUserSurveysHtml)
 }
 
 const getOneSurveysFailure = function (data) {
-  $('.user-message').html('Your surveys are below !')
+  // $('.user-message').html('Your surveys are below !')
 }
 
 const updateSurveysSuccess = function () {

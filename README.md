@@ -1,74 +1,59 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+## The application:
+Survey Says! is a full-stack application used for creating
+a custom survey and displaying the results on the dashboard.
 
-# browser-template
+Simply sign up to create and account. Sign in to start creating your own custom
+surveys. From your dashboard you can create, view, edit and delete custom surveys.
+surveys. Other registered users can then respond to our survey and the results
+are displayed.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
 
-## Installation
+## Links:
+Back end repo: https://github.com/the-console-dawgs/back-end-repo
+Front end repo: https://github.com/the-console-dawgs/front-end-client
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
+Front end deployed: https://the-console-dawgs.github.io/front-end-client/
+Back end deployed: https://guarded-springs-12986.herokuapp.com/
 
-## Structure
+## Technology
+For this application we used:
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+javascript, html, css, boostrap, handlebars, mongodb, mongoose, express
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+## Unsolved Problems
+We would like to be able to create surveys that contain responses other
+than simply true or false values.
+We would also like to be able to update the resuts dashboard in real time.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+## Wireframes and User stories
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+Wireframe: https://imgur.com/RhZ6MS6
+User stories: https://github.com/the-console-dawgs/front-end-client/projects/1#column-3054488
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+Database ERD: https://i.imgur.com/pkEFywA.jpg
 
-## Tasks
+## Routes and Paths
 
-Developers should run these often!
+User Routes: Sign Up POST /sign-up
+             Sign In POST /sign-in
+             Change Password PATCH /change-password
+             Sign Out DELETE /sign-out
 
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+Survey Routes: Create POST /surveys
+               Get All   GET /surveys
+               Delete DELETE /surveys/:id
+               Update PATCH /surveys/:id
+               
+Response Routes: Create POST /responses
+                 Get responses GET /surveys/ + data.survey
 
-## Additional Resources
 
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
 
-## [License](LICENSE)
+## Planning, Process & Problem-solving
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+We planned our project using user stories, an ERD diagram and a wireframe.
+We then made a list of to-dos for the back end as well as the front end.
+We randomly chose a leader for each day to spearhead the operations and each person took on either the front end or the back end.
+When we ran into an issue that we were not familiar with, we all grouped back together to attack the problem. This allowed
+us all to learn and contribute our possible solutions.
+We made it a point to slack out a message each time we made a pull request in order to alert our teammates that they would need to pull down the latest development branch.

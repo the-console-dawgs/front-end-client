@@ -32,7 +32,6 @@ const getSurveysSuccess = function (data) {
 }
 
 const getSurveysFailure = function (data) {
-  // $('.user-message').html('Please try again !')
 }
 
 const getUserSurveySuccess = function (data) {
@@ -51,18 +50,14 @@ const getUserSurveySuccess = function (data) {
     newSurvey.push(userSurvey)
 
     // userSurvey should be in an new array called newSurvey
-    // userSurvey = {
-    //   surveys: newSurvey
-    // }
-    console.log(`newSurvey`, userSurvey)
+    console.log(`newSurvey`, newSurvey)
   }
   const showUserSurveyHtml = showUserSurvey({
-    userSurvey: userSurvey
+    newSurvey: newSurvey
   })
-  console.log(`userSurvey is`, userSurvey)
+  console.log(`showuserSurvey is`, showUserSurveyHtml)
   // $('.user-message').html('Your surveys(user) are below !')
   $('.show-content').html(showUserSurveyHtml)
-  // $('.show-content').html(`${userSurvey}`)
 }
 
 const getUserSurveyFailure = function (data) {

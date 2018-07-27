@@ -110,13 +110,6 @@ const onUpdateSurvey = function (event) {
     .catch(surveysUi.updateSurveyError)
 }
 
-// const addHandlers = () => {
-  // $('.show-content').on('submit', onGetSurveys)
-//   $('#view-all-surveys-btn').on('submit', onGetSurveys)
-//   $('#view-your-surveys').on('submit', onGetUserSurvey)
-//   // $('#list-of-recipes').on('submit', '.delete-recipe', onCreateResponse)
-// }
-
 module.exports = {
   onDashNav,
   onCreateSurveyTab,

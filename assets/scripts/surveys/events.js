@@ -22,14 +22,14 @@ const onCreateSurveyTab = function (event) {
   $('#logo').delay(100).fadeOut(100)
   $('#dash-nav').delay(200).fadeIn(100)
 }
-
-const onYourSurveysTab = function (event) {
-  event.preventDefault()
-  $('#dashboard').delay(100).fadeOut(100)
-  $('#your-surveys').delay(200).fadeIn(100)
-  $('#logo').delay(100).fadeOut(100)
-  $('#dash-nav').delay(200).fadeIn(100)
-}
+//
+// const onYourSurveysTab = function (event) {
+//   event.preventDefault()
+//   $('#dashboard').delay(100).fadeOut(100)
+//   $('#your-surveys').delay(200).fadeIn(100)
+//   $('#logo').delay(100).fadeOut(100)
+//   $('#dash-nav').delay(200).fadeIn(100)
+// }
 
 // const onAllSurveysTab = function (event) {
 //   event.preventDefault()
@@ -65,10 +65,38 @@ const onGetSurveys = function (event) {
     .catch(surveysUi.getSurveysError)
 }
 
+// const onGetUserSurvey = function (event) {
+//   event.preventDefault()
+//   const surveyId = $(event.target).attr('survey-id')
+//   const data = $(event.target).data('id')
+//   console.log(`onAllsurvey event is `, event)
+//   console.log('clicked get user survey tab)')
+//   console.log(`surveyId is `, surveyId)
+//   // $('#dashboard').delay(100).fadeOut(100)
+//   // $('#all-surveys').delay(200).fadeIn(100)
+//   // $('#logo').delay(100).fadeOut(100)
+//   // $('#dash-nav').delay(200).fadeIn(100)
+//   surveysApi.getUserSurvey()
+//     .then(surveysUi.getUserSurveySuccess)
+//     .catch(surveysUi.getUserSurveyFailure)
+// }
+
+const onGetUserSurvey = function (event) {
+  console.log(`get user survey was clicked`)
+  console.log(`event was`, event)
+  const surveyId = $(event.target).attr('survey-id')
+  console.log(`survey id is `, surveyId)
+  event.preventDefault()
+  surveysApi.getSurveys()
+    .then(surveysUi.getUserSurveySuccess)
+    .catch()
+}
+
 const onRemoveSurvey = function (event) {
   event.preventDefault()
-  const surveyId = $(event.target).attr('data-id')
-  surveysApi.removeSurvey(surveyId)
+  const surveyId = $(event.target).attr('survey_id')
+  console.log(surveyId)
+  surveysApi.removeSurvey()
     .then(surveysUi.removeSurveySuccess)
     .catch(surveysUi.removeSurveyError)
 }
@@ -82,19 +110,15 @@ const onUpdateSurvey = function (event) {
     .catch(surveysUi.updateSurveyError)
 }
 
-const addHandlers = () => {
-  $('.show-content').on('submit', onGetSurveys)
-  // $('#list-of-recipes').on('submit', '.delete-recipe', onCreateResponse)
-}
-
 module.exports = {
   onDashNav,
   onCreateSurveyTab,
-  onYourSurveysTab,
+  // onYourSurveysTab,
   // onAllSurveysTab,
   onCreateSurvey,
   onGetSurveys,
   onRemoveSurvey,
   onUpdateSurvey,
-  addHandlers
+  // addHandlers
+  onGetUserSurvey
 }

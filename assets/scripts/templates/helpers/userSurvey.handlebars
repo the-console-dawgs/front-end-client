@@ -1,24 +1,24 @@
+
   {{#each surveys as |survey|}}
 
-    <div class="row" data-id="{{survey.id}}"">
+    <div class="row" data-id="{{survey._id}}"">
        <div class="col-xs-12">
-
-        <label for="survey-question-{{survey.id}}">Survey Question</label>
+         <label for="survey-question-{{survey._id}}">Survey Question</label>
         <h4>{{survey.question}}</h4>
-       </div>
+
        <h5>Number of responses: {{survey.response.length}}</h5>
       <div class="show-options col-xs-12 response-message">
-        <button type="submit" class="btn btn-default view-result" data-class="view-response" data-id='{{response.id}}'>View Response!</button>
-        <button type="submit" class="btn btn-default take-survey" data-class="take-survey" data-id='{{survey.id}}'>Take the Survey!</button>
-        <button type="submit" class="btn btn-default delete-survey" data-class="delete-survey" data-id='{{survey.id}}'>Delete Survey !</button>
-        <button type="submit" class="btn btn-default update-survey" data-id='{{survey.id}}'> Update Survey !</button>
+        <button type="submit" class="btn btn-default view-result" data-class="view-response" data-id='{{response._id}}'>View Response!</button>
+        <button type="submit" class="btn btn-default delete-survey" data-class="delete-survey" data-id='{{survey._id}}'>Delete Survey !</button>
 
-        <div class = "update-userSurvey" col-xs-12<form class="survey-update-form update-form-{{survey.id}}" data-id="{{survey.id}}">
+        <button type="submit" class="btn btn-default update-survey" data-id='{{survey._id}}'> Update Survey !</button>
+        <div class = "update-userSurvey" col-xs-12 >
+          <form class="survey-update-form update-form-{{survey.id}}" data-id="{{survey._id}}">
           <input class="inputReset" name="question"" placeholder="Update Question" type="text">
-          <button type="submit">Update Survery Question</button>
+          <button type="submit">Update Survey Question</button></form>
         </div>
 
-      </div
-    </div>
-  </div>
+      </div>
+   </div>
+ </div>
  {{/each}}

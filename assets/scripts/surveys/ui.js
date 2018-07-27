@@ -1,7 +1,7 @@
 'use strict'
 const store = require('../store.js')
 const showAllSurveys = require('../templates/helpers/survey.handlebars')
-const showUserSurveys = require('../templates/helpers/userSurvey.handlebars')
+const showUserSurvey = require('../templates/helpers/userSurvey.handlebars')
 
 const createSurveySuccess = function (createSurveyResponse) {
   $('#create-survey-form')[0].reset()
@@ -17,7 +17,9 @@ const createSurveyError = function (createSurveyError) {
 }
 
 const getSurveysSuccess = function (data) {
+  console.log(`data is:`, data)
   store.surveys = data.surveys
+  console.log(`surveys are`, store.survey)
   const showSurveysHtml = showAllSurveys({
     surveys: data.surveys
   })
@@ -33,17 +35,38 @@ const getSurveysFailure = function (data) {
   // $('.user-message').html('Please try again !')
 }
 
-const getOneSurveySuccess = function (data) {
+const getUserSurveySuccess = function (data) {
+  console.log(`get user survey success`)
+  console.log('data is ', data)
   store.surveys = data.surveys
-  const showUserSurveysHtml = showUserSurveys({
-    // surveys: data.surveys
+  // creating an empty object so that we can add user's surveys in it
+  const userSurvey = {}
+  // array for the objects
+  const newSurvey = []
+  for (let i = 0; data.surveys.length > i; i++) {
+    if (data.surveys[i].owner === store.user._id) {
+      userSurvey[data.surveys[i]._id] = data.surveys[i]
+      // newSurvey.push(data.surveys[i])
+    }
+    newSurvey.push(userSurvey)
+
+    // userSurvey should be in an new array called newSurvey
+    // userSurvey = {
+    //   surveys: newSurvey
+    // }
+    console.log(`newSurvey`, userSurvey)
+  }
+  const showUserSurveyHtml = showUserSurvey({
+    userSurvey: userSurvey
   })
+  console.log(`userSurvey is`, userSurvey)
   // $('.user-message').html('Your surveys(user) are below !')
-  $('.show-content').html(showUserSurveysHtml)
+  $('.show-content').html(showUserSurveyHtml)
+  // $('.show-content').html(`${userSurvey}`)
 }
 
-const getOneSurveysFailure = function (data) {
-  // $('.user-message').html('Your surveys are below !')
+const getUserSurveyFailure = function (data) {
+  console.log(`get user survey fail`) // $('.user-message').html('Your surveys are below !')
 }
 
 const updateSurveysSuccess = function () {
@@ -56,12 +79,12 @@ const updateSurveysFailure = function () {
   // $('.update-one-recipe-form').find('input').val('')
 }
 
-const deleteSurveysSuccess = function () {
+const deleteSurveysSuccess = function() {
   $('#user-msg').html('Your survey is deleted!')
   // $('.update-one-recipe-form').find('input').val('')
 }
 
-const deleteSurveysFailure = function () {
+const deleteSurveysFailure = function() {
   $('#user-msg').html('Your survey is not deleted !')
   // $('.update-one-recipe-form').find('input').val('')
 }
@@ -75,6 +98,6 @@ module.exports = {
   deleteSurveysSuccess,
   updateSurveysFailure,
   updateSurveysSuccess,
-  getOneSurveysFailure,
-  getOneSurveySuccess
+  getUserSurveyFailure,
+  getUserSurveySuccess
 }

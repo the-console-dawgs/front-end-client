@@ -2,6 +2,8 @@
 
 const store = require('../store')
 
+let signedIn = false
+
 const registerSuccess = function (registerResponse) {
   store.user = registerResponse.user
   $('#register-error').hide()
@@ -23,7 +25,11 @@ const registerError = function (registerError) {
 
 const logInSuccess = function (logInResponse) {
   store.user = logInResponse.user
-  console.log(logInResponse)
+  store.user_id = store.user._id
+  signedIn = true
+  console.log(`logInResponse `, logInResponse)
+  console.log(`store.user is `, store.user)
+  console.log(`store.user_id is `, store.user._id)
   $('#change-password').delay(200).fadeIn(100)
   $('#sign-out').delay(200).fadeIn(100)
   $('#login-form')[0].reset()

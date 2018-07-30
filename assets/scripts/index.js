@@ -34,25 +34,27 @@ $(() => {
   // dashboard click handlers
   $('.create').on('click', surveyEvents.onCreateSurveyTab)
   // $('.your-surveys').on('click', surveyEvents.onYourSurveysTab)
+
   $('.your-surveys').on('click', surveyEvents.onGetUserSurvey)
+
   $('.all-surveys').on('click', surveyEvents.onGetSurveys)
   $('#view-all-surveys-btn').on('click', surveyEvents.onGetSurveys)
 
   // dashboard hover effect
-  // $('.create').hover(
-  //   function () {
-  //     $(this).css({'background-color': 'rgba(133, 227, 253, 1)'})
-  //   },
-  //   function () {
-  //     $(this).css({'background-color': 'rgba(133, 227, 253, .6)'})
-  //   }),
-  // // $('.your-surveys').hover(
-  // //   function () {
-  // //     $(this).css({'background-color': 'rgba(82, 215, 253, 1)'})
-  // //   },
-  //   function () {
-  //     $(this).css({'background-color': 'rgba(82, 215, 253, .6)'})
-  //   }
+  $('.create').hover(
+    function () {
+      $(this).css({'background-color': 'rgba(133, 227, 253, 1)'})
+    },
+    function () {
+      $(this).css({'background-color': 'rgba(133, 227, 253, .6)'})
+    })
+  $('.your-surveys').hover(
+    function () {
+      $(this).css({'background-color': 'rgba(82, 215, 253, 1)'})
+    },
+    function () {
+      $(this).css({'background-color': 'rgba(82, 215, 253, .6)'})
+    })
   $('.all-surveys').hover(
     function () {
       $(this).css({'background-color': 'rgba(3, 199, 255, 1)'})
@@ -74,4 +76,10 @@ $(() => {
   // Create Response
   $('.survey-response-form').on('submit', responseEvents.onCreateResponse)
   $('.show-content').on('submit', '.survey-response-form', responseEvents.onCreateResponse)
+
+  // Update Survey
+  $('.show-content').on('submit', '.update-survey', surveyEvents.onUpdateSurvey)
+
+  // Remove survey
+  $('.show-content').on('click', '#delete-survey', surveyEvents.onRemoveSurvey)
 })

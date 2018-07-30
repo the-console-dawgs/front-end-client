@@ -66,6 +66,11 @@ $(() => {
   $('#create-survey-error').hide()
   $('#create-survey-form').on('submit', surveyEvents.onCreateSurvey)
 
+  // Update Survey
+  // $('#update-survey').hide()
+  // $('#update-survey-error').hide()
+  // $('#update-survey-form').on('submit', surveyEvents.onUpdateSurvey)
+
   // Create Response
   $('.survey-response-form').on('submit', responseEvents.onCreateResponse)
   $('.show-content').on('submit', '.survey-response-form', responseEvents.onCreateResponse)

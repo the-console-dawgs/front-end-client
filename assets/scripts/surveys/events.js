@@ -7,8 +7,6 @@ const surveysUi = require('./ui')
 const onDashNav = function (event) {
   event.preventDefault()
   $('#create-survey').delay(100).fadeOut(100)
-  $('#create-survey').delay(100).fadeOut(100)
-  $('#create-survey').delay(100).fadeOut(100)
   $('#dash-nav').delay(100).fadeOut(100)
   $('#dashboard').delay(200).fadeIn(100)
   $('#logo').delay(200).fadeIn(100)
@@ -22,6 +20,14 @@ const onCreateSurveyTab = function (event) {
   $('#logo').delay(100).fadeOut(100)
   $('#dash-nav').delay(200).fadeIn(100)
 }
+
+const refreshSurveys = function (event) {
+  $('.show-content').html('')
+  surveysApi.getSurveys()
+    .then(surveysUi.getUserSurveySuccess)
+    .catch()
+}
+
 //
 // const onYourSurveysTab = function (event) {
 //   event.preventDefault()
@@ -84,9 +90,13 @@ const onGetSurveys = function (event) {
 const onGetUserSurvey = function (event) {
   console.log(`get user survey was clicked`)
   console.log(`event was`, event)
-  const surveyId = $(event.target).attr('survey-id')
-  console.log(`survey id is `, surveyId)
   event.preventDefault()
+
+  $('#dashboard').delay(100).fadeOut(100)
+  $('#logo').delay(100).fadeOut(100)
+  $('#dash-nav').delay(200).fadeIn(100)
+  $('.show-content').delay(200).fadeIn(100)
+
   surveysApi.getSurveys()
     .then(surveysUi.getUserSurveySuccess)
     .catch()
@@ -94,11 +104,12 @@ const onGetUserSurvey = function (event) {
 
 const onRemoveSurvey = function (event) {
   event.preventDefault()
-  const surveyId = $(event.target).attr('survey_id')
+  const surveyId = $(event.target).attr('data-id')
   console.log(surveyId)
-  surveysApi.removeSurvey()
+  surveysApi.removeSurvey(surveyId)
     .then(surveysUi.removeSurveySuccess)
     .catch(surveysUi.removeSurveyError)
+    .then(refreshSurveys)
 }
 
 const onUpdateSurvey = function (event) {
@@ -108,6 +119,7 @@ const onUpdateSurvey = function (event) {
   surveysApi.updateSurvey(data, surveyId)
     .then(surveysUi.updateSurveySuccess)
     .catch(surveysUi.updateSurveyError)
+    .then(refreshSurveys)
 }
 
 module.exports = {

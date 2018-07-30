@@ -1,15 +1,15 @@
 {{#each newSurvey as |surveys|}}
   {{#each surveys as |survey|}}
     <div class="handlebars" id="survey-{{survey._id}}">
-      <!-- <h1 data-id="{{survey._id}}"><small>Title: {{survey.title}}</small></h1> -->
-      <p data-id={{survey._id}}><strong>Question:</strong> {{survey.question}}</p>
-      <p data-id={{survey._id}}><strong>Survey ID:</strong> {{survey._id}}</p>
-      <form class="delete-survey survey-forms">
-        <fieldset>
-          <input type="text" class="hidden "name="survey[id]" value="{{survey._id}}" data-id={{survey._id}} required>
-          <input type="submit" class="btn btn-default" value="Delete This Survey">
-        </fieldset>
-      </form>
+      <div class="card-body col-sm-2 col-med-2" style="background-color: white; width: 31.5%; min-height: 300px; margin: 10px; padding-top: 20px;">
+        <p data-id={{survey._id}}><strong>Survey ID:</strong> {{survey._id}}</p>
+        <p data-id={{survey._id}}><strong>Question:</strong> {{survey.question}}</p>
+        <form class='update-survey' data-id="{{survey._id}}">
+          <input type="text" name="survey[question]" tabindex="4" class="form-control" placeholder="{{survey.question}}" required>
+          <button style="margin: 15px 5px;" type="submit" class="btn btn-info btn-style">UPDATE SURVEY</button>
+          <button id="delete-survey" style="margin: 15px 5px;" class="btn btn-danger btn-style" data-id='{{survey._id}}'>DELETE SURVEY</button>
+        </form>
+      </div>
     </div>
   {{/each}}
 {{/each}}

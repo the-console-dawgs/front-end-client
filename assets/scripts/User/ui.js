@@ -67,7 +67,6 @@ const signOutSuccess = function (signOutResponse) {
   $('#login-form').fadeOut(100)
   $('#login-form-link').removeClass('active')
   $('#register-form-link').addClass('active')
-  $('#auth-forms').show()
   $('#register-success').hide()
   $('#register-form')[0].reset()
   $('#login-form')[0].reset()
@@ -78,6 +77,9 @@ const signOutSuccess = function (signOutResponse) {
   $('.show-content').delay(100).fadeOut(100)
   $('#dash-nav').delay(100).fadeOut(100)
   $('#logo').delay(200).fadeIn(100)
+  $('#dashboard').delay(100).fadeOut(100)
+  $('#create-survey').delay(100).fadeOut(100)
+  $('#auth-forms').delay(200).fadeIn(100)
 }
 
 const signOutError = function (signOutError) {

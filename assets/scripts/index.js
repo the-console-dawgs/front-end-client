@@ -35,7 +35,7 @@ $(() => {
   $('.create').on('click', surveyEvents.onCreateSurveyTab)
   // $('.your-surveys').on('click', surveyEvents.onYourSurveysTab)
 
-  $('.your-surveys').on('click', surveyEvents.onGetUserSurvey)
+  $('.your-surveys').on('click', surveyEvents.onGetUserSurveys)
 
   $('.all-surveys').on('click', surveyEvents.onGetSurveys)
   $('#view-all-surveys-btn').on('click', surveyEvents.onGetSurveys)
@@ -81,5 +81,5 @@ $(() => {
   $('.show-content').on('submit', '.update-survey', surveyEvents.onUpdateSurvey)
 
   // Remove survey
-  $('.show-content').on('click', '#delete-survey', surveyEvents.onRemoveSurvey)
+  $('.show-content').on('click', '.delete-survey', surveyEvents.onRemoveSurvey)
 })

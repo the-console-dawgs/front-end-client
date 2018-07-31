@@ -24,29 +24,9 @@ const onCreateSurveyTab = function (event) {
 const refreshSurveys = function (event) {
   $('.show-content').html('')
   surveysApi.getSurveys()
-    .then(surveysUi.getUserSurveySuccess)
+    .then(surveysUi.getUserSurveysSuccess)
     .catch()
 }
-
-//
-// const onYourSurveysTab = function (event) {
-//   event.preventDefault()
-//   $('#dashboard').delay(100).fadeOut(100)
-//   $('#your-surveys').delay(200).fadeIn(100)
-//   $('#logo').delay(100).fadeOut(100)
-//   $('#dash-nav').delay(200).fadeIn(100)
-// }
-
-// const onAllSurveysTab = function (event) {
-//   event.preventDefault()
-//   console.log(`onAllsurvey event is `, event)
-//   console.log('clicked all survey tab)')
-//   $('#dashboard').delay(100).fadeOut(100)
-//   $('#all-surveys').delay(200).fadeIn(100)
-//   $('#logo').delay(100).fadeOut(100)
-//   $('#dash-nav').delay(200).fadeIn(100)
-//   onGetSurveys()
-// }
 
 const onCreateSurvey = function (event) {
   event.preventDefault()
@@ -71,34 +51,14 @@ const onGetSurveys = function (event) {
     .catch(surveysUi.getSurveysError)
 }
 
-// const onGetUserSurvey = function (event) {
-//   event.preventDefault()
-//   const surveyId = $(event.target).attr('survey-id')
-//   const data = $(event.target).data('id')
-//   console.log(`onAllsurvey event is `, event)
-//   console.log('clicked get user survey tab)')
-//   console.log(`surveyId is `, surveyId)
-//   // $('#dashboard').delay(100).fadeOut(100)
-//   // $('#all-surveys').delay(200).fadeIn(100)
-//   // $('#logo').delay(100).fadeOut(100)
-//   // $('#dash-nav').delay(200).fadeIn(100)
-//   surveysApi.getUserSurvey()
-//     .then(surveysUi.getUserSurveySuccess)
-//     .catch(surveysUi.getUserSurveyFailure)
-// }
-
-const onGetUserSurvey = function (event) {
-  console.log(`get user survey was clicked`)
-  console.log(`event was`, event)
+const onGetUserSurveys = function (event) {
   event.preventDefault()
-
   $('#dashboard').delay(100).fadeOut(100)
   $('#logo').delay(100).fadeOut(100)
   $('#dash-nav').delay(200).fadeIn(100)
   $('.show-content').delay(200).fadeIn(100)
-
   surveysApi.getSurveys()
-    .then(surveysUi.getUserSurveySuccess)
+    .then(surveysUi.getUserSurveysSuccess)
     .catch()
 }
 
@@ -125,12 +85,10 @@ const onUpdateSurvey = function (event) {
 module.exports = {
   onDashNav,
   onCreateSurveyTab,
-  // onYourSurveysTab,
-  // onAllSurveysTab,
   onCreateSurvey,
   onGetSurveys,
   onRemoveSurvey,
   onUpdateSurvey,
   // addHandlers
-  onGetUserSurvey
+  onGetUserSurveys
 }

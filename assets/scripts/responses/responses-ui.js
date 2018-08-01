@@ -16,6 +16,14 @@ const createResponseFailure = function (data) {
   $('.user-message').text(' Sorry, please try again !')
 }
 
+const getResponsesSuccess = function (data) {
+  console.log(data)
+}
+
+const getResponsesError = function (data) {
+  console.log(data)
+}
+
 // const getResponsesSuccess = function (data) {
 //   store.responses = data.responses
 //   const showResponsesHtml = showAllResponses({
@@ -27,6 +35,7 @@ const createResponseFailure = function (data) {
 
 module.exports = {
   createResponseFailure,
-  createResponseSuccess
-  // getResponsesSuccess
+  createResponseSuccess,
+  getResponsesSuccess,
+  getResponsesError
 }

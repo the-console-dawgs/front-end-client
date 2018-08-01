@@ -77,6 +77,9 @@ $(() => {
   $('.survey-response-form').on('submit', responseEvents.onCreateResponse)
   $('.show-content').on('submit', '.survey-response-form', responseEvents.onCreateResponse)
 
+  // Show Survey Responses
+  $('.show-content').on('click', '.view-responses', responseEvents.onGetResponses)
+
   // Update Survey
   $('.show-content').on('submit', '.update-survey', surveyEvents.onUpdateSurvey)
 

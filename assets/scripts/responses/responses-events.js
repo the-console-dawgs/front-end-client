@@ -20,7 +20,9 @@ const onCreateResponse = function (event) {
 
 const onGetResponses = function (event) {
   event.preventDefault()
-  api.getRecipes()
+  console.log('event is', event)
+  const surveyId = $(event.target).attr('data-id')
+  api.getResponses(surveyId)
     .then(ui.getResponsesSuccess)
     .catch(ui.getResponsesFailure)
 }

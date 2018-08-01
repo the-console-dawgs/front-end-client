@@ -2,14 +2,23 @@
 // const showAllResponses = require('../templates/helpers/responses.handlebars')
 // const store = require('../store.js')
 
+const surveysApi = require('../surveys/api')
+const surveysUi = require('../surveys/ui')
+
+const refreshSurveys = function (event) {
+  $('.show-content').html('')
+  surveysApi.getSurveys()
+    .then(surveysUi.getSurveysSuccess)
+    .catch()
+}
+
 // need to figure out where to display all the UI messages
 const createResponseSuccess = function (data) {
   // $('.user-message').text('Thank You. Response has been submitted.')
   console.log(data)
-  // $('#survey-response-form')[0].reset()
-  $(this).prop('checked', false)
   $('#successModal').modal('show')
   $('#success-message').text(`You successfully answered survey ${data.response.survey} with ${data.response.value}.`)
+  refreshSurveys()
 }
 
 const createResponseFailure = function (data) {
@@ -18,20 +27,27 @@ const createResponseFailure = function (data) {
 
 const getResponsesSuccess = function (data) {
   console.log(data)
+  console.log('total number of responses is ', data.survey.length)
+  const trueResponse = []
+  const falseResponse = []
+  for (let i = 0; i < data.survey.length; i++) {
+    if (data.survey[i].value === 'True') {
+      trueResponse.push('True')
+    } else if (data.survey[i].value === 'False') {
+      falseResponse.push('False')
+    } else {
+      console.log('error')
+    }
+  }
+  console.log(trueResponse.length)
+  console.log(falseResponse.length)
+  $('#surveyResponseModal').modal('show')
+  $('#survey-response-stats').text(`Total Response: ${data.survey.length} True: ${trueResponse.length} False: ${falseResponse.length} `)
 }
 
 const getResponsesError = function (data) {
   console.log(data)
 }
-
-// const getResponsesSuccess = function (data) {
-//   store.responses = data.responses
-//   const showResponsesHtml = showAllResponses({
-//     respones: data.responses
-//   })
-//   $('.user-message').html('Your responses are below !')
-//   $('.show-content').html(showResponsesHtml)
-// }
 
 module.exports = {
   createResponseFailure,

@@ -26,14 +26,8 @@ const onGetResponses = function (event) {
     .then(ui.getResponsesSuccess)
     .catch(ui.getResponsesFailure)
 }
-// need to edit the location for displaying all these through handlebars
-const addHandlers = () => {
-  $('#show-content').on('submit', onGetResponses)
-  // $('#list-of-recipes').on('submit', '.delete-recipe', onCreateResponse)
-}
 
 module.exports = {
   onGetResponses,
-  onCreateResponse,
-  addHandlers
+  onCreateResponse
 }

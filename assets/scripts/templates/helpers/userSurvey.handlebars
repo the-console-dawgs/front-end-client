@@ -1,24 +1,15 @@
-  {{#each surveys as |survey|}}
+{{#each surveys as |survey|}}
 
-    <div class="row" data-id="{{survey.id}}"">
-       <div class="col-xs-12">
-
-        <label for="survey-question-{{survey.id}}">Survey Question</label>
-        <h4>{{survey.question}}</h4>
-       </div>
-       <h5>Number of responses: {{survey.response.length}}</h5>
-      <div class="show-options col-xs-12 response-message">
-        <button type="submit" class="btn btn-default view-result" data-class="view-response" data-id='{{response.id}}'>View Response!</button>
-        <button type="submit" class="btn btn-default take-survey" data-class="take-survey" data-id='{{survey.id}}'>Take the Survey!</button>
-        <button type="submit" class="btn btn-default delete-survey" data-class="delete-survey" data-id='{{survey.id}}'>Delete Survey !</button>
-        <button type="submit" class="btn btn-default update-survey" data-id='{{survey.id}}'> Update Survey !</button>
-
-        <div class = "update-userSurvey" col-xs-12<form class="survey-update-form update-form-{{survey.id}}" data-id="{{survey.id}}">
-          <input class="inputReset" name="question"" placeholder="Update Question" type="text">
-          <button type="submit">Update Survery Question</button>
-        </div>
-
-      </div
+  <div class="handlebars" id="survey-{{survey._id}}">
+    <div class="card-body col-sm-2 col-med-2" style="background-color: white; width: 31.5%; min-height: 300px; margin: 10px; padding-top: 20px;">
+      <p data-id={{survey._id}}><strong>Survey ID:</strong> {{survey._id}}</p>
+      <p data-id={{survey._id}}><strong>Question:</strong> {{survey.question}}</p>
+      <form class='update-survey' data-id="{{survey._id}}">
+        <input type="text" name="survey[question]" tabindex="4" class="form-control" placeholder="{{survey.question}}" required>
+        <button style="margin: 15px 5px;" type="submit" class="btn btn-info btn-style">UPDATE SURVEY</button>
+        <button style="margin: 15px 5px;" class="btn btn-danger btn-style delete-survey" data-id='{{survey._id}}'>DELETE SURVEY</button>
+      </form>
     </div>
   </div>
- {{/each}}
+
+{{/each}}

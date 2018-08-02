@@ -20,18 +20,14 @@ const onCreateResponse = function (event) {
 
 const onGetResponses = function (event) {
   event.preventDefault()
-  api.getRecipes()
+  console.log('event is', event)
+  const surveyId = $(event.target).attr('data-id')
+  api.getResponses(surveyId)
     .then(ui.getResponsesSuccess)
     .catch(ui.getResponsesFailure)
-}
-// need to edit the location for displaying all these through handlebars
-const addHandlers = () => {
-  $('#show-content').on('submit', onGetResponses)
-  // $('#list-of-recipes').on('submit', '.delete-recipe', onCreateResponse)
 }
 
 module.exports = {
   onGetResponses,
-  onCreateResponse,
-  addHandlers
+  onCreateResponse
 }

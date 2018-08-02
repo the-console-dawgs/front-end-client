@@ -37,7 +37,7 @@ const removeSurvey = (surveyId) => {
 const updateSurvey = (data, surveyId) => {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/surveys' + surveyId,
+    url: config.apiUrl + '/surveys/' + surveyId,
     data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token

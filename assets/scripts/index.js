@@ -33,7 +33,10 @@ $(() => {
 
   // dashboard click handlers
   $('.create').on('click', surveyEvents.onCreateSurveyTab)
-  $('.your-surveys').on('click', surveyEvents.onYourSurveysTab)
+  // $('.your-surveys').on('click', surveyEvents.onYourSurveysTab)
+
+  $('.your-surveys').on('click', surveyEvents.onGetUserSurveys)
+
   $('.all-surveys').on('click', surveyEvents.onGetSurveys)
   $('#view-all-surveys-btn').on('click', surveyEvents.onGetSurveys)
 
@@ -65,7 +68,21 @@ $(() => {
   $('#create-survey-error').hide()
   $('#create-survey-form').on('submit', surveyEvents.onCreateSurvey)
 
+  // Update Survey
+  // $('#update-survey').hide()
+  // $('#update-survey-error').hide()
+  // $('#update-survey-form').on('submit', surveyEvents.onUpdateSurvey)
+
   // Create Response
   $('.survey-response-form').on('submit', responseEvents.onCreateResponse)
   $('.show-content').on('submit', '.survey-response-form', responseEvents.onCreateResponse)
+
+  // Show Survey Responses
+  $('.show-content').on('click', '.view-responses', responseEvents.onGetResponses)
+
+  // Update Survey
+  $('.show-content').on('submit', '.update-survey', surveyEvents.onUpdateSurvey)
+
+  // Remove survey
+  $('.show-content').on('click', '.delete-survey', surveyEvents.onRemoveSurvey)
 })

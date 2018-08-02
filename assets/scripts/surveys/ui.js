@@ -17,7 +17,9 @@ const createSurveyError = function (createSurveyError) {
 }
 
 const getSurveysSuccess = function (data) {
+  console.log(`data is:`, data)
   store.surveys = data.surveys
+  console.log(`surveys are`, store.surveys)
   const showSurveysHtml = showAllSurveys({
     surveys: data.surveys
   })
@@ -30,40 +32,43 @@ const getSurveysSuccess = function (data) {
 }
 
 const getSurveysFailure = function (data) {
-  // $('.user-message').html('Please try again !')
 }
 
-const getOneSurveySuccess = function (data) {
+const getUserSurveysSuccess = function (data) {
   store.surveys = data.surveys
+  const userSurveys = []
+  for (let i = 0; data.surveys.length > i; i++) {
+    if (data.surveys[i].owner === store.user._id) {
+      userSurveys.push(data.surveys[i])
+    }
+  }
   const showUserSurveysHtml = showUserSurveys({
-    // surveys: data.surveys
+    surveys: userSurveys
   })
-  // $('.user-message').html('Your surveys(user) are below !')
+  $('.show-content').delay(100).fadeIn(100)
   $('.show-content').html(showUserSurveysHtml)
 }
 
-const getOneSurveysFailure = function (data) {
-  // $('.user-message').html('Your surveys are below !')
+const getUserSurveysFailure = function (data) {
+  console.log(`get user survey fail`) // $('.user-message').html('Your surveys are below !')
 }
 
-const updateSurveysSuccess = function () {
-  $('#user-msg').html('Your survey is updated !')
-  // $('.update-one-recipe-form').find('input').val('')
+const updateSurveySuccess = function (updateSurveyResponse) {
+  $('#successModal').modal('show')
+  $('#success-message').html('Your survey has been updated!')
 }
 
-const updateSurveysFailure = function () {
-  $('#user-msg').html('We could not update your survey !')
-  // $('.update-one-recipe-form').find('input').val('')
+const updateSurveyError = function (updateSurveyError) {
+  // console.log(updateRoundError)
 }
 
-const deleteSurveysSuccess = function () {
-  $('#user-msg').html('Your survey is deleted!')
-  // $('.update-one-recipe-form').find('input').val('')
+const removeSurveySuccess = function (removeSurveySuccess) {
+  $('#successModal').modal('show')
+  $('#success-message').html('You successfully removed this survey!')
 }
 
-const deleteSurveysFailure = function () {
-  $('#user-msg').html('Your survey is not deleted !')
-  // $('.update-one-recipe-form').find('input').val('')
+const removeSurveyError = function (removeSurveyError) {
+  // console.log(removeRoundsError)
 }
 
 module.exports = {
@@ -71,10 +76,10 @@ module.exports = {
   createSurveyError,
   getSurveysSuccess,
   getSurveysFailure,
-  deleteSurveysFailure,
-  deleteSurveysSuccess,
-  updateSurveysFailure,
-  updateSurveysSuccess,
-  getOneSurveysFailure,
-  getOneSurveySuccess
+  removeSurveySuccess,
+  removeSurveyError,
+  updateSurveySuccess,
+  updateSurveyError,
+  getUserSurveysFailure,
+  getUserSurveysSuccess
 }

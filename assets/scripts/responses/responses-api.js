@@ -19,11 +19,11 @@ const createResponse = function (value, surveyId) {
   })
 }
 
-const getResponses = function (data) {
+const getResponses = function (surveyId) {
+  console.log('surveyId is ', surveyId)
   return $.ajax({
-    url: config.apiOrigin + '/surveys/' + data.survey,
+    url: config.apiUrl + '/responses/' + surveyId,
     method: 'GET',
-    data: data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

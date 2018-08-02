@@ -2,6 +2,8 @@
 
 const store = require('../store')
 
+let signedIn = false
+
 const registerSuccess = function (registerResponse) {
   store.user = registerResponse.user
   $('#register-error').hide()
@@ -23,7 +25,11 @@ const registerError = function (registerError) {
 
 const logInSuccess = function (logInResponse) {
   store.user = logInResponse.user
-  console.log(logInResponse)
+  store.user_id = store.user._id
+  signedIn = true
+  console.log(`logInResponse `, logInResponse)
+  console.log(`store.user is `, store.user)
+  console.log(`store.user_id is `, store.user._id)
   $('#change-password').delay(200).fadeIn(100)
   $('#sign-out').delay(200).fadeIn(100)
   $('#login-form')[0].reset()
@@ -61,7 +67,6 @@ const signOutSuccess = function (signOutResponse) {
   $('#login-form').fadeOut(100)
   $('#login-form-link').removeClass('active')
   $('#register-form-link').addClass('active')
-  $('#auth-forms').show()
   $('#register-success').hide()
   $('#register-form')[0].reset()
   $('#login-form')[0].reset()
@@ -72,6 +77,9 @@ const signOutSuccess = function (signOutResponse) {
   $('.show-content').delay(100).fadeOut(100)
   $('#dash-nav').delay(100).fadeOut(100)
   $('#logo').delay(200).fadeIn(100)
+  $('#dashboard').delay(100).fadeOut(100)
+  $('#create-survey').delay(100).fadeOut(100)
+  $('#auth-forms').delay(200).fadeIn(100)
 }
 
 const signOutError = function (signOutError) {

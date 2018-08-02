@@ -37,6 +37,8 @@ $(() => {
 
   $('.your-surveys').on('click', surveyEvents.onGetUserSurveys)
 
+  $('#view-your-surveys-btn').on('click', surveyEvents.onGetUserSurveys)
+
   $('.all-surveys').on('click', surveyEvents.onGetSurveys)
   $('#view-all-surveys-btn').on('click', surveyEvents.onGetSurveys)
 

@@ -13,9 +13,13 @@ const onCreateResponse = function (event) {
   // console.log(surveyId)
   // console.log(value)
   const value = data.response
-  api.createResponse(value, surveyId)
-    .then(ui.createResponseSuccess)
-    .catch(ui.createResponseFailure)
+  if (value != null) {
+    api.createResponse(value, surveyId)
+      .then(ui.createResponseSuccess)
+      .catch(ui.createResponseFailure)
+  } else {
+    ui.createResponseFailure()
+  }
 }
 
 const onGetResponses = function (event) {

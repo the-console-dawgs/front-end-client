@@ -53,10 +53,10 @@ const onGetSurveys = function (event) {
 
 const onGetUserSurveys = function (event) {
   event.preventDefault()
+  $('#create-survey').delay(100).fadeOut(100)
   $('#dashboard').delay(100).fadeOut(100)
   $('#logo').delay(100).fadeOut(100)
   $('#dash-nav').delay(200).fadeIn(100)
-  $('.show-content').delay(200).fadeIn(100)
   surveysApi.getSurveys()
     .then(surveysUi.getUserSurveysSuccess)
     .catch()

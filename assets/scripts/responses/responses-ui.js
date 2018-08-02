@@ -22,7 +22,8 @@ const createResponseSuccess = function (data) {
 }
 
 const createResponseFailure = function (data) {
-  $('.user-message').text(' Sorry, please try again !')
+  $('#successModal').modal('show')
+  $('#success-message').text(`Please select a response before you submit a response.`)
 }
 
 const getResponsesSuccess = function (data) {

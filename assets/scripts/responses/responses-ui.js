@@ -17,7 +17,7 @@ const createResponseSuccess = function (data) {
   // $('.user-message').text('Thank You. Response has been submitted.')
   console.log(data)
   $('#successModal').modal('show')
-  $('#success-message').text(`You successfully answered survey ${data.response.survey} with ${data.response.value}.`)
+  $('#success-message').text(`You successfully answered the survey with ${data.response.value}.`)
   refreshSurveys()
 }
 
@@ -27,22 +27,24 @@ const createResponseFailure = function (data) {
 
 const getResponsesSuccess = function (data) {
   console.log(data)
-  console.log('total number of responses is ', data.survey.length)
+  const totalResponses = []
   const trueResponse = []
   const falseResponse = []
   for (let i = 0; i < data.survey.length; i++) {
     if (data.survey[i].value === 'True') {
       trueResponse.push('True')
+      totalResponses.push('True')
     } else if (data.survey[i].value === 'False') {
       falseResponse.push('False')
+      totalResponses.push('False')
     } else {
-      console.log('error')
     }
   }
+  console.log('total number of responses is ', totalResponses.length)
   console.log(trueResponse.length)
   console.log(falseResponse.length)
   $('#surveyResponseModal').modal('show')
-  $('#survey-response-stats').text(`Total Response: ${data.survey.length} True: ${trueResponse.length} False: ${falseResponse.length} `)
+  $('#survey-response-stats').text(`Total Response: ${totalResponses.length} True: ${trueResponse.length} False: ${falseResponse.length} `)
 }
 
 const getResponsesError = function (data) {

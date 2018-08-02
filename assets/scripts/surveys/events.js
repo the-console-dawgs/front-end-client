@@ -41,10 +41,6 @@ const onGetSurveys = function (event) {
   event.preventDefault()
   console.log(`onAllsurvey event is `, event)
   console.log('clicked all survey tab)')
-  $('#dashboard').delay(100).fadeOut(100)
-  $('#all-surveys').delay(200).fadeIn(100)
-  $('#logo').delay(100).fadeOut(100)
-  $('#dash-nav').delay(200).fadeIn(100)
   // console.log(event)
   surveysApi.getSurveys()
     .then(surveysUi.getSurveysSuccess)
@@ -53,13 +49,9 @@ const onGetSurveys = function (event) {
 
 const onGetUserSurveys = function (event) {
   event.preventDefault()
-  $('#create-survey').delay(100).fadeOut(100)
-  $('#dashboard').delay(100).fadeOut(100)
-  $('#logo').delay(100).fadeOut(100)
-  $('#dash-nav').delay(200).fadeIn(100)
   surveysApi.getSurveys()
     .then(surveysUi.getUserSurveysSuccess)
-    .catch()
+    .catch(surveysUi.getUserSurveysError)
 }
 
 const onRemoveSurvey = function (event) {

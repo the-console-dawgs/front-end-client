@@ -45,7 +45,7 @@ const getUserSurveysSuccess = function (data) {
   const showUserSurveysHtml = showUserSurveys({
     surveys: userSurveys
   })
-  $('.show-content').delay(100).fadeIn(100)
+  $('.show-content').delay(200).fadeIn(100)
   $('.show-content').html(showUserSurveysHtml)
 }
 

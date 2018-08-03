@@ -39,31 +39,6 @@ const getSurveysSuccess = function (data) {
 const getSurveysError = function (data) {
 }
 
-// const getUserSurveysSuccess = function (data) {
-//   store.surveys = data.surveys
-//   const userSurveys = []
-//   for (let i = 0; data.surveys.length > i; i++) {
-//     if (data.surveys[i].owner === store.user._id) {
-//       userSurveys.push(data.surveys[i])
-//     }
-//   }
-//
-//   if (userSurveys.length > 0) {
-//     const showUserSurveysHtml = showUserSurveys({
-//       surveys: userSurveys
-//     })
-//     $('#create-survey').delay(100).fadeOut(100)
-//     $('#dashboard').delay(100).fadeOut(100)
-//     $('#logo').delay(100).fadeOut(100)
-//     $('#dash-nav').delay(200).fadeIn(100)
-//     $('.show-content').delay(200).fadeIn(100)
-//     $('.show-content').html(showUserSurveysHtml)
-//   } else {
-//     $('#messageModal').modal('show')
-//     $('#message').text('You have no surveys. Please create a survey!')
-//   }
-// }
-
 const getUserSurveysSuccess = function (data) {
   store.surveys = data.surveys
   const userSurveys = []

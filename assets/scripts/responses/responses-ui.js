@@ -46,7 +46,6 @@ const getResponsesSuccess = function (data) {
   $('#surveyResponseModal').modal('show')
   $('#survey-response-stats').html('')
   $('#survey-response-stats').append(`<h3>Total Responses:</h3> <h2>${totalResponses.length}</h2><h3>True:</h3><h2>${trueResponse.length}</h2><h3>False:</h3><h2>${falseResponse.length}</h2>`)
-  // $('#survey-response-stats').text(`Total Responses: ${totalResponses.length} True: ${trueResponse.length} False: ${falseResponse.length} `)
 }
 
 const getResponsesError = function (data) {

@@ -14,7 +14,6 @@ const createResponse = function (value, surveyId) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-    // data
   })
 }
 

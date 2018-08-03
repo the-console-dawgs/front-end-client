@@ -2,7 +2,6 @@ const store = require('../store')
 const config = require('../config.js')
 
 const createResponse = function (value, surveyId) {
-  console.log(value, surveyId)
   return $.ajax({
     url: config.apiUrl + '/responses/',
     method: 'POST',
@@ -20,7 +19,6 @@ const createResponse = function (value, surveyId) {
 }
 
 const getResponses = function (surveyId) {
-  console.log('surveyId is ', surveyId)
   return $.ajax({
     url: config.apiUrl + '/responses/' + surveyId,
     method: 'GET',

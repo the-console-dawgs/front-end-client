@@ -16,9 +16,7 @@ const createSurveyError = function (createSurveyError) {
 }
 
 const getSurveysSuccess = function (data) {
-  console.log(`data is:`, data)
   store.surveys = data.surveys
-  console.log(`data.surveys.length `, data.surveys.length)
   if (data.surveys.length > 0) {
     const showSurveysHtml = showAllSurveys({
       surveys: data.surveys
@@ -49,7 +47,6 @@ const getSurveysError = function (data) {
 //       userSurveys.push(data.surveys[i])
 //     }
 //   }
-//   console.log('userSurveys.length is ', userSurveys.length)
 //
 //   if (userSurveys.length > 0) {
 //     const showUserSurveysHtml = showUserSurveys({
@@ -75,7 +72,6 @@ const getUserSurveysSuccess = function (data) {
       userSurveys.push(data.surveys[i])
     }
   }
-  console.log('userSurveys.length is ', userSurveys.length)
 
   if (userSurveys.length > 0) {
     const showUserSurveysHtml = showUserSurveys({
@@ -97,7 +93,6 @@ const getUserSurveysSuccess = function (data) {
 }
 
 const getUserSurveysError = function (data) {
-  // console.log(`Error is `, data)
 }
 
 const updateSurveySuccess = function (updateSurveyResponse) {
@@ -106,7 +101,6 @@ const updateSurveySuccess = function (updateSurveyResponse) {
 }
 
 const updateSurveyError = function (updateSurveyError) {
-  // console.log(updateSurveyError)
 }
 
 const removeSurveySuccess = function (data) {
@@ -117,7 +111,6 @@ const removeSurveySuccess = function (data) {
       userSurveys.push(data.surveys[i])
     }
   }
-  console.log('userSurveys.length is ', userSurveys.length)
 
   if (userSurveys.length > 0) {
     const showUserSurveysHtml = showUserSurveys({
@@ -141,7 +134,6 @@ const removeSurveySuccess = function (data) {
 }
 
 const removeSurveyError = function (removeSurveyError) {
-  // console.log(removeSurveyError)
 }
 
 module.exports = {

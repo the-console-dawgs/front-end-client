@@ -27,9 +27,6 @@ const logInSuccess = function (logInResponse) {
   store.user = logInResponse.user
   store.user_id = store.user._id
   signedIn = true
-  console.log(`logInResponse `, logInResponse)
-  console.log(`store.user is `, store.user)
-  console.log(`store.user_id is `, store.user._id)
   $('#change-password').delay(200).fadeIn(100)
   $('#sign-out').delay(200).fadeIn(100)
   $('#login-form')[0].reset()
@@ -83,7 +80,6 @@ const signOutSuccess = function (signOutResponse) {
 }
 
 const signOutError = function (signOutError) {
-  // console.log('something went wrong. Here\'s your error: ', signOutError)
 }
 
 module.exports = {

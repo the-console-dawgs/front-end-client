@@ -3,7 +3,6 @@ const store = require('../store')
 const config = require('../config')
 
 const createSurvey = function (data) {
-  console.log(data)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/surveys',

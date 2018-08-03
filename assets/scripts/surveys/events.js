@@ -38,7 +38,6 @@ const refreshSurveysOnDelete = function (event) {
 const onCreateSurvey = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   surveysApi.createSurvey(data)
     .then(surveysUi.createSurveySuccess)
     .catch(surveysUi.createSurveyError)
@@ -46,9 +45,6 @@ const onCreateSurvey = function (event) {
 
 const onGetSurveys = function (event) {
   event.preventDefault()
-  console.log(`onAllsurvey event is `, event)
-  console.log('clicked all survey tab)')
-  // console.log(event)
   surveysApi.getSurveys()
     .then(surveysUi.getSurveysSuccess)
     .catch(surveysUi.getSurveysError)
@@ -64,7 +60,6 @@ const onGetUserSurveys = function (event) {
 const onRemoveSurvey = function (event) {
   event.preventDefault()
   const surveyId = $(event.target).attr('data-id')
-  console.log(surveyId)
   surveysApi.removeSurvey(surveyId)
     .then(refreshSurveysOnDelete)
     .catch(surveysUi.removeSurveyError)

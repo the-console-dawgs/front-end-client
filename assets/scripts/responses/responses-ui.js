@@ -14,7 +14,6 @@ const refreshSurveys = function (event) {
 
 // need to figure out where to display all the UI messages
 const createResponseSuccess = function (data) {
-  console.log(data)
   $('#successModal').modal('show')
   $('#success-message').text(`You successfully answered the survey with ${data.response.value}.`)
   refreshSurveys()
@@ -26,7 +25,6 @@ const createResponseFailure = function (data) {
 }
 
 const getResponsesSuccess = function (data) {
-  console.log(data)
   const totalResponses = []
   const trueResponse = []
   const falseResponse = []
@@ -40,16 +38,14 @@ const getResponsesSuccess = function (data) {
     } else {
     }
   }
-  console.log('total number of responses is ', totalResponses.length)
-  console.log(trueResponse.length)
-  console.log(falseResponse.length)
+
   $('#surveyResponseModal').modal('show')
   $('#survey-response-stats').html('')
   $('#survey-response-stats').append(`<h3>Total Responses:</h3> <h2>${totalResponses.length}</h2><h3>True:</h3><h2>${trueResponse.length}</h2><h3>False:</h3><h2>${falseResponse.length}</h2>`)
 }
 
 const getResponsesError = function (data) {
-  console.log(data)
+
 }
 
 module.exports = {

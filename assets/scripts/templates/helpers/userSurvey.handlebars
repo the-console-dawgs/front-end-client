@@ -2,8 +2,7 @@
 
   <div class="handlebars" id="survey-{{survey._id}}">
     <div class="card-body col-sm-2 col-med-2" style="background-color: white; width: 31.5%; min-height: 300px; margin: 10px; padding-top: 20px;">
-      <p data-id={{survey._id}}><strong>Survey ID:</strong> {{survey._id}}</p>
-      <p data-id={{survey._id}}><strong>Question:</strong> {{survey.question}}</p>
+      <h3 data-id={{survey._id}}><strong>Question:</strong> {{survey.question}}</h3>
       <form class='update-survey' data-id="{{survey._id}}">
         <input type="text" name="survey[question]" tabindex="4" class="form-control" placeholder="{{survey.question}}" required>
         <button style="margin: 15px 5px;" type="submit" class="btn btn-info btn-style">UPDATE SURVEY</button>

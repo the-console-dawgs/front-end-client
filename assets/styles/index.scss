@@ -53,6 +53,31 @@ body {
   text-align: center;
 }
 
+#message {
+  color: red;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 30px;
+  text-align: center;
+}
+
+#survey-response-body {
+  padding: 25px;
+  text-align: center;
+}
+
+#survey-response-body h2 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #1ba91f;
+}
+
+#survey-response-body h3 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+}
+
 .panel-login {
 	border-color: #ccc;
 	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);

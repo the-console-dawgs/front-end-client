@@ -13,26 +13,56 @@ const createSurveySuccess = function (createSurveyResponse) {
 const createSurveyError = function (createSurveyError) {
   $('#create-survey-form')[0].reset()
   $('#create-survey-error').delay(100).fadeIn(100)
-  // $('.user-message').html('You were not able to create a survey!')
 }
 
 const getSurveysSuccess = function (data) {
-  console.log(`data is:`, data)
   store.surveys = data.surveys
-  console.log(`surveys are`, store.surveys)
-  const showSurveysHtml = showAllSurveys({
-    surveys: data.surveys
-  })
-  $('#create-survey-form')[0].reset()
-  $('#create-survey-error').hide()
-  $('#create-survey').delay(100).fadeOut(100)
-  // $('.user-message').html('Your surveys are below !')
-  $('.show-content').delay(100).fadeIn(100)
-  $('.show-content').html(showSurveysHtml)
+  if (data.surveys.length > 0) {
+    const showSurveysHtml = showAllSurveys({
+      surveys: data.surveys
+    })
+    $('#dashboard').delay(100).fadeOut(100)
+    $('#all-surveys').delay(200).fadeIn(100)
+    $('#logo').delay(100).fadeOut(100)
+    $('#dash-nav').delay(200).fadeIn(100)
+    $('#create-survey-form')[0].reset()
+    $('#create-survey-error').hide()
+    $('#create-survey').delay(100).fadeOut(100)
+    $('.show-content').delay(100).fadeIn(100)
+    $('.show-content').html(showSurveysHtml)
+  } else {
+    $('#messageModal').modal('show')
+    $('#message').text('Sorry, there are currently no surveys')
+  }
 }
 
-const getSurveysFailure = function (data) {
+const getSurveysError = function (data) {
 }
+
+// const getUserSurveysSuccess = function (data) {
+//   store.surveys = data.surveys
+//   const userSurveys = []
+//   for (let i = 0; data.surveys.length > i; i++) {
+//     if (data.surveys[i].owner === store.user._id) {
+//       userSurveys.push(data.surveys[i])
+//     }
+//   }
+//
+//   if (userSurveys.length > 0) {
+//     const showUserSurveysHtml = showUserSurveys({
+//       surveys: userSurveys
+//     })
+//     $('#create-survey').delay(100).fadeOut(100)
+//     $('#dashboard').delay(100).fadeOut(100)
+//     $('#logo').delay(100).fadeOut(100)
+//     $('#dash-nav').delay(200).fadeIn(100)
+//     $('.show-content').delay(200).fadeIn(100)
+//     $('.show-content').html(showUserSurveysHtml)
+//   } else {
+//     $('#messageModal').modal('show')
+//     $('#message').text('You have no surveys. Please create a survey!')
+//   }
+// }
 
 const getUserSurveysSuccess = function (data) {
   store.surveys = data.surveys
@@ -42,15 +72,27 @@ const getUserSurveysSuccess = function (data) {
       userSurveys.push(data.surveys[i])
     }
   }
-  const showUserSurveysHtml = showUserSurveys({
-    surveys: userSurveys
-  })
-  $('.show-content').delay(200).fadeIn(100)
-  $('.show-content').html(showUserSurveysHtml)
+
+  if (userSurveys.length > 0) {
+    const showUserSurveysHtml = showUserSurveys({
+      surveys: userSurveys
+    })
+    $('#create-survey').delay(100).fadeOut(100)
+    $('#dashboard').delay(100).fadeOut(100)
+    $('#logo').delay(100).fadeOut(100)
+    $('#dash-nav').delay(200).fadeIn(100)
+    $('.show-content').delay(200).fadeIn(100)
+    $('.show-content').html(showUserSurveysHtml)
+  } else {
+    $('#dash-nav').delay(100).fadeOut(100)
+    $('#dashboard').delay(200).fadeIn(100)
+    $('#logo').delay(200).fadeIn(100)
+    $('#messageModal').modal('show')
+    $('#message').text('You have no surveys. Please create a survey!')
+  }
 }
 
-const getUserSurveysFailure = function (data) {
-  console.log(`get user survey fail`) // $('.user-message').html('Your surveys are below !')
+const getUserSurveysError = function (data) {
 }
 
 const updateSurveySuccess = function (updateSurveyResponse) {
@@ -59,27 +101,50 @@ const updateSurveySuccess = function (updateSurveyResponse) {
 }
 
 const updateSurveyError = function (updateSurveyError) {
-  // console.log(updateRoundError)
 }
 
-const removeSurveySuccess = function (removeSurveySuccess) {
-  $('#successModal').modal('show')
-  $('#success-message').html('You successfully removed this survey!')
+const removeSurveySuccess = function (data) {
+  store.surveys = data.surveys
+  const userSurveys = []
+  for (let i = 0; data.surveys.length > i; i++) {
+    if (data.surveys[i].owner === store.user._id) {
+      userSurveys.push(data.surveys[i])
+    }
+  }
+
+  if (userSurveys.length > 0) {
+    const showUserSurveysHtml = showUserSurveys({
+      surveys: userSurveys
+    })
+    $('#create-survey').delay(100).fadeOut(100)
+    $('#dashboard').delay(100).fadeOut(100)
+    $('#logo').delay(100).fadeOut(100)
+    $('#dash-nav').delay(200).fadeIn(100)
+    $('.show-content').delay(200).fadeIn(100)
+    $('.show-content').html(showUserSurveysHtml)
+    $('#successModal').modal('show')
+    $('#success-message').html('You successfully removed this survey!')
+  } else {
+    $('#dash-nav').delay(100).fadeOut(100)
+    $('#dashboard').delay(200).fadeIn(100)
+    $('#logo').delay(200).fadeIn(100)
+    $('#successModal').modal('show')
+    $('#success-message').html('You successfully removed this survey!<br> You have no surveys. Please create a survey!')
+  }
 }
 
 const removeSurveyError = function (removeSurveyError) {
-  // console.log(removeRoundsError)
 }
 
 module.exports = {
   createSurveySuccess,
   createSurveyError,
   getSurveysSuccess,
-  getSurveysFailure,
+  getSurveysError,
   removeSurveySuccess,
   removeSurveyError,
   updateSurveySuccess,
   updateSurveyError,
-  getUserSurveysFailure,
+  getUserSurveysError,
   getUserSurveysSuccess
 }

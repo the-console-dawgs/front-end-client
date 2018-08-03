@@ -28,6 +28,13 @@ const refreshSurveys = function (event) {
     .catch()
 }
 
+const refreshSurveysOnDelete = function (event) {
+  $('.show-content').html('')
+  surveysApi.getSurveys()
+    .then(surveysUi.removeSurveySuccess)
+    .catch()
+}
+
 const onCreateSurvey = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -59,9 +66,8 @@ const onRemoveSurvey = function (event) {
   const surveyId = $(event.target).attr('data-id')
   console.log(surveyId)
   surveysApi.removeSurvey(surveyId)
-    .then(surveysUi.removeSurveySuccess)
+    .then(refreshSurveysOnDelete)
     .catch(surveysUi.removeSurveyError)
-    .then(refreshSurveys)
 }
 
 const onUpdateSurvey = function (event) {
@@ -82,5 +88,6 @@ module.exports = {
   onRemoveSurvey,
   onUpdateSurvey,
   // addHandlers
-  onGetUserSurveys
+  onGetUserSurveys,
+  refreshSurveysOnDelete
 }

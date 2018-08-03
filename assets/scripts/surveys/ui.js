@@ -41,6 +41,32 @@ const getSurveysSuccess = function (data) {
 const getSurveysError = function (data) {
 }
 
+// const getUserSurveysSuccess = function (data) {
+//   store.surveys = data.surveys
+//   const userSurveys = []
+//   for (let i = 0; data.surveys.length > i; i++) {
+//     if (data.surveys[i].owner === store.user._id) {
+//       userSurveys.push(data.surveys[i])
+//     }
+//   }
+//   console.log('userSurveys.length is ', userSurveys.length)
+//
+//   if (userSurveys.length > 0) {
+//     const showUserSurveysHtml = showUserSurveys({
+//       surveys: userSurveys
+//     })
+//     $('#create-survey').delay(100).fadeOut(100)
+//     $('#dashboard').delay(100).fadeOut(100)
+//     $('#logo').delay(100).fadeOut(100)
+//     $('#dash-nav').delay(200).fadeIn(100)
+//     $('.show-content').delay(200).fadeIn(100)
+//     $('.show-content').html(showUserSurveysHtml)
+//   } else {
+//     $('#messageModal').modal('show')
+//     $('#message').text('You have no surveys. Please create a survey!')
+//   }
+// }
+
 const getUserSurveysSuccess = function (data) {
   store.surveys = data.surveys
   const userSurveys = []
@@ -62,6 +88,9 @@ const getUserSurveysSuccess = function (data) {
     $('.show-content').delay(200).fadeIn(100)
     $('.show-content').html(showUserSurveysHtml)
   } else {
+    $('#dash-nav').delay(100).fadeOut(100)
+    $('#dashboard').delay(200).fadeIn(100)
+    $('#logo').delay(200).fadeIn(100)
     $('#messageModal').modal('show')
     $('#message').text('You have no surveys. Please create a survey!')
   }
@@ -80,9 +109,35 @@ const updateSurveyError = function (updateSurveyError) {
   // console.log(updateSurveyError)
 }
 
-const removeSurveySuccess = function (removeSurveySuccess) {
-  $('#successModal').modal('show')
-  $('#success-message').html('You successfully removed this survey!')
+const removeSurveySuccess = function (data) {
+  store.surveys = data.surveys
+  const userSurveys = []
+  for (let i = 0; data.surveys.length > i; i++) {
+    if (data.surveys[i].owner === store.user._id) {
+      userSurveys.push(data.surveys[i])
+    }
+  }
+  console.log('userSurveys.length is ', userSurveys.length)
+
+  if (userSurveys.length > 0) {
+    const showUserSurveysHtml = showUserSurveys({
+      surveys: userSurveys
+    })
+    $('#create-survey').delay(100).fadeOut(100)
+    $('#dashboard').delay(100).fadeOut(100)
+    $('#logo').delay(100).fadeOut(100)
+    $('#dash-nav').delay(200).fadeIn(100)
+    $('.show-content').delay(200).fadeIn(100)
+    $('.show-content').html(showUserSurveysHtml)
+    $('#successModal').modal('show')
+    $('#success-message').html('You successfully removed this survey!')
+  } else {
+    $('#dash-nav').delay(100).fadeOut(100)
+    $('#dashboard').delay(200).fadeIn(100)
+    $('#logo').delay(200).fadeIn(100)
+    $('#successModal').modal('show')
+    $('#success-message').html('You successfully removed this survey!<br> You have no surveys. Please create a survey!')
+  }
 }
 
 const removeSurveyError = function (removeSurveyError) {

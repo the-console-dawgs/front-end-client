@@ -24,8 +24,6 @@ $(() => {
   $('#login-form-link').on('click', authEvents.onLogInFormLink)
   $('#register-form-link').on('click', authEvents.onRegisterFormLink)
 
-  // $('#auth-forms').hide()
-
   // Dashboard
   $('#dash-nav').hide()
   $('#dash-nav').on('click', surveyEvents.onDashNav)
@@ -69,11 +67,6 @@ $(() => {
   $('#create-survey').hide()
   $('#create-survey-error').hide()
   $('#create-survey-form').on('submit', surveyEvents.onCreateSurvey)
-
-  // Update Survey
-  // $('#update-survey').hide()
-  // $('#update-survey-error').hide()
-  // $('#update-survey-form').on('submit', surveyEvents.onUpdateSurvey)
 
   // Create Response
   $('.survey-response-form').on('submit', responseEvents.onCreateResponse)

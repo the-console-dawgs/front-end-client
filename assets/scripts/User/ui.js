@@ -2,7 +2,7 @@
 
 const store = require('../store')
 
-let signedIn = false
+// let signedIn = false
 
 const registerSuccess = function (registerResponse) {
   store.user = registerResponse.user
@@ -26,7 +26,7 @@ const registerError = function (registerError) {
 const logInSuccess = function (logInResponse) {
   store.user = logInResponse.user
   store.user_id = store.user._id
-  signedIn = true
+  // signedIn = true
   $('#change-password').delay(200).fadeIn(100)
   $('#sign-out').delay(200).fadeIn(100)
   $('#login-form')[0].reset()
@@ -59,6 +59,7 @@ const signOutSuccess = function (signOutResponse) {
   $('#sign-out-success-message').show()
   $('#change-password').hide()
   $('#change-pw-error').hide()
+  $('#change-password-form')[0].reset()
   $('#sign-out').hide()
   $('#register-form').delay(100).fadeIn(100)
   $('#login-form').fadeOut(100)

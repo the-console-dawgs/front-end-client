@@ -82,7 +82,6 @@ module.exports = {
   onGetSurveys,
   onRemoveSurvey,
   onUpdateSurvey,
-  // addHandlers
   onGetUserSurveys,
   refreshSurveysOnDelete
 }

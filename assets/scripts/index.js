@@ -19,10 +19,14 @@ $(() => {
   $('#register-form').on('submit', authEvents.onRegister)
   $('#login-error').hide()
   $('#login-form').on('submit', authEvents.onLogIn)
-  $('#change-password-form').on('submit', authEvents.onChangePassword)
+  $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#login-form-link').on('click', authEvents.onLogInFormLink)
   $('#register-form-link').on('click', authEvents.onRegisterFormLink)
+  // clear change pw form
+  $('#change-password').click(function () {
+    $('#change-password-form')[0].reset()
+  })
 
   // Dashboard
   $('#dash-nav').hide()
